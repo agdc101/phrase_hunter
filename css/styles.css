@@ -8,11 +8,11 @@
   --color-lose: #D94545;
   --color-start: #5b85b7;
   --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
+  --color-neutral-light: #979797;
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
-  --font-size-medium: 20px;
+  --font-size-medium: 25px;
   --transition: all .2s ease-in-out;
 }
 
@@ -51,13 +51,16 @@ button {
   border: 1px solid transparent;
   padding: .5rem 1rem;
   color: var(--color-keys);
-  font-size: var(--font-size-medium);
+  font-size: 20px;
   background-color: var(--color-keys-light);
   border-radius: 5px;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+}
+button:hover {
+  background-color: lightgreen;
 }
 
 #btn__reset {
@@ -66,6 +69,7 @@ button {
 }
 
 .main-container {
+  background-color: #e6ffff;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -96,7 +100,7 @@ button {
   font-size: var(--font-size-medium);
   height: 65px;
   width: 65px;
-  padding: 20px 1px 0 1px;
+  padding: 15px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
   background: var(--color-neutral-light);
@@ -133,12 +137,12 @@ button {
 .chosen {
   background: #3a3f58;
   border-radius: 5px;
-  font-size: var(--font-size-medium);
+  font-size: 20px;
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #f76e64;
   color: #FFFFFF;
 }
 

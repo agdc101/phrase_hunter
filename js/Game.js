@@ -1,20 +1,30 @@
 
 class Game {
-    constructor (phrases) {
+    constructor () {
         this.missed = 0;
-        this.phrases = phrases;
+        this.phrases = [new Phrase('Better late than never'), 
+                        new Phrase('Bite the bullet'),
+                        new Phrase('Break a leg'),
+                        new Phrase('Call it a day'),
+                        new Phrase('Easy does it'),
+                        new Phrase('To make matters worse'),
+                        new Phrase('You can say that again'),
+                        new Phrase('A blessing in disguise'),
+                        new Phrase('Once in a blue moon'),
+                        new Phrase('Speak of the devil')];
         this.activePhrase = null;
     }
     // start game! overlay is hidden. random phrase is retrieved and displayed!
     startGame() {
+        console.log(this.phrases.length);
         document.querySelector('#overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
     }
     // random number is created then passed as an index value to create a new phrase.
     getRandomPhrase() {
-        let randomPhrase = this.phrases[Math.floor(Math.random() * 10)];
-        return new Phrase(randomPhrase);
+        return this.phrases[Math.floor(Math.random() * 10)];
+        // return new Phrase(randomPhrase);
     }
     // if the user guesses correctly, keyboard is assigned a class and the letter is revealed.
     // if the user is wrong, a life is lost and the appropriate class is assigned to keyboard key.
@@ -46,10 +56,10 @@ class Game {
     gameOver() {
         document.querySelector('#overlay').style.display = 'flex';
         this.checkForWin() ? ( document.querySelector('#game-over-message').textContent = 'Well Done! You Got The Correct Answer!',
-                               document.querySelector('.title').classList.remove('lose'),
-                               document.querySelector('.title').classList.add('win'))
+                               document.querySelector('#overlay').classList.remove('lose'),
+                               document.querySelector('#overlay').classList.add('win'))
                            : ( document.querySelector('#game-over-message').textContent = 'Unlucky! You Ran Out Of Guesses!',
-                               document.querySelector('.title').classList.remove('lose'),
-                               document.querySelector('.title').classList.add('lose'));
+                               document.querySelector('#overlay').classList.remove('lose'),
+                               document.querySelector('#overlay').classList.add('lose'));
     }
 }

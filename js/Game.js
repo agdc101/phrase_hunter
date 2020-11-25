@@ -16,7 +16,6 @@ class Game {
     }
     // start game! overlay is hidden. random phrase is retrieved and displayed!
     startGame() {
-        console.log(this.phrases.length);
         document.querySelector('#overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
@@ -55,10 +54,10 @@ class Game {
     // based on the result, the appropriate message is display, styling also added to the title.
     gameOver() {
         document.querySelector('#overlay').style.display = 'flex';
-        this.checkForWin() ? ( document.querySelector('#game-over-message').textContent = 'Well Done! You Got The Correct Answer!',
+        this.checkForWin() ? ( document.querySelector('#game-over-message').textContent = `Well Done! You Got The Correct Answer!`,
                                document.querySelector('#overlay').classList.remove('lose'),
                                document.querySelector('#overlay').classList.add('win'))
-                           : ( document.querySelector('#game-over-message').textContent = 'Unlucky! You Ran Out Of Guesses!',
+                           : ( document.querySelector('#game-over-message').textContent = `Unlucky! You Ran Out Of Guesses! The answer was '${this.activePhrase.phrase}'!`,
                                document.querySelector('#overlay').classList.remove('lose'),
                                document.querySelector('#overlay').classList.add('lose'));
     }
